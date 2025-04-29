@@ -17,7 +17,7 @@ param (
 # Set variables
 $owner = "sarthaknazkani"              # GitHub username or org
 $imageName = "super-service"                  # Name of your Docker image
-$fullImageName = "ghcr.io/$owner/$imageName:$Tag"
+$fullImageName = "ghcr.io/${owner}/${imageName}:${Tag}"
 
 
 docker login ghcr.io -u $owner -p $Token
