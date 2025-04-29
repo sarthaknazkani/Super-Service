@@ -13,4 +13,3 @@ echo $Token | docker login ghcr.io -u sarthaknazkani --password-stdin
 # Push the Docker image to GHCR
 docker push "ghcr.io/sarthaknazkani/super-service:$Tag"
 
-
