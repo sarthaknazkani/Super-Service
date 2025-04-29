@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run PowerShell Script
-        run: pwsh super-service/Deploy.ps1 -Token ${{ secrets.GHCR_PAT }} -Tag "v0.1"
+        run: pwsh super-service/Deploy.ps1 -Token ${{ secrets.GHCR_PAT }} -Tag ${{ github.event.inputs.tag}}
