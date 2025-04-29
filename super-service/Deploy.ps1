@@ -19,11 +19,10 @@ $owner = "sarthaknazkani"              # GitHub username or org
 $imageName = "super-service"                  # Name of your Docker image
 $fullImageName = "ghcr.io/${owner}/${imageName}:${Tag}"
 
-
 docker login ghcr.io -u $owner -p $Token
-Write-Host "Logged In"
 # 2. Build Docker image
 Write-Host "Building Docker image..."
+Set-Location -Path "super-service"
 docker build -t $imageName . --no-cache
 # 3. Tag image for GHCR
 Write-Host "Tagging image..."
