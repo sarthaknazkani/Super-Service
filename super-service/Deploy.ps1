@@ -13,7 +13,6 @@ param (
 # # Push the Docker image to GHCR
 # docker push "ghcr.io/sarthaknazkani/super-service:$Tag"
 
-
 # Set variables
 $owner = "sarthaknazkani"              # GitHub username or org
 $imageName = "super-service"                  # Name of your Docker image
