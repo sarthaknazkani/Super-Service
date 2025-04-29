@@ -9,7 +9,7 @@ $repo = "super-service"
 $imageName = "super-service"
 
 # Path to your Dockerfile
-$dockerfilePath = "super-service/"
+$dockerfilePath = "super-service/Dockerfile"
 
 # Build the Docker image
 docker build -t ghcr.io/${owner}/${repo}/${imageName}:${Tag} -f ${dockerfilePath} .
