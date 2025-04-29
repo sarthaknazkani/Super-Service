@@ -1,9 +1,5 @@
-
 param (
-    [string]$Token
-)
-
-param (
+    [string]$Token,
     [string]$Tag
 )
 
