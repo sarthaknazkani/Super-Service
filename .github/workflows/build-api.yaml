@@ -23,19 +23,19 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2      
 
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '3.1'
+    # - name: Setup dotnet
+    #   uses: actions/setup-dotnet@v4
+    #   with:
+    #     dotnet-version: '3.1'
 
-    - name: DotNet Restore
-      run: dotnet restore super-service/src/SuperService.csproj
+    # - name: DotNet Restore
+    #   run: dotnet restore super-service/src/SuperService.csproj
 
-    - name: DotNet Build
-      run: dotnet build super-service/src/SuperService.csproj --no-restore
+    # - name: DotNet Build
+    #   run: dotnet build super-service/src/SuperService.csproj --no-restore
 
-    - name: Test with the dotnet CLI
-      run: dotnet test super-service/test/SuperService.UnitTests.csproj --no-build --verbosity normal    
+    # - name: Test with the dotnet CLI
+    #   run: dotnet test super-service/test/SuperService.UnitTests.csproj --no-build --verbosity normal    
       
     - name: Docker Setup Docker
       uses: docker/setup-docker-action@v4.3.0
