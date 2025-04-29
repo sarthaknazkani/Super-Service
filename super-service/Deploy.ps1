@@ -5,11 +5,11 @@ param (
 
 # Define your parameters
 $owner = "sarthaknazkani"
-$repo = "ss"
+$repo = "Super-Service"
 $imageName = "super-service"
 
 # Path to your Dockerfile
-$dockerfilePath = "super-service/Dockerfile"
+$dockerfilePath = "super-service/"
 
 # Build the Docker image
 docker build -t ghcr.io/${owner}/${repo}/${imageName}:${Tag} -f ${dockerfilePath} .
