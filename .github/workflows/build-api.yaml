@@ -1,9 +1,9 @@
 name: Build Super-Service Application
 
 on:
-  push:
-    branches:
-      - feature/build
+#   push:
+#     branches:
+#       - feature/build
   workflow_dispatch:
     inputs:
       tag:
@@ -50,6 +50,8 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_PAT }}
 
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
