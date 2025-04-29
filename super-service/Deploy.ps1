@@ -5,7 +5,7 @@ param (
 
 # Define your parameters
 $owner = "sarthaknazkani"
-$repo = "Super-Service"
+$repo = "super-service"
 $imageName = "super-service"
 
 # Path to your Dockerfile
