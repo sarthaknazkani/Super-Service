@@ -26,3 +26,4 @@ Solution:
 1. Trigger .github/workflows/trigger-ps.yaml, providing image tag as user input.
 2. The powershell script 'Deploy.ps1' triggers which builds the Dockerfile image of the application using dot net 3.1.
 3. The image is tagged and pushed to GHCR , from where it can be pulled specifying the tag.
+4. This image can be run locally in Docker Container and different timezones can be accessed at [controller]/[zone] . Example : /time/itc , /time/utc
