@@ -28,7 +28,7 @@ jobs:
 
       - name: Build, tag, and push Docker image to ECR
         env:
-            ECR_REPOSITORY: repo
+            ECR_REPOSITORY: dev/repo
             IMAGE_TAG: ${{ github.event.inputs.tag}}
         run: |
             docker build -t $ECR_REPOSITORY:$IMAGE_TAG ./super-service/
