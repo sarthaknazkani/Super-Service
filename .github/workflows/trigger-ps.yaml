@@ -1,4 +1,4 @@
-name: Build and Push Docker Image through Powershell
+name: Build and Push Docker Image- Powershell
 
 on:
       workflow_dispatch:
