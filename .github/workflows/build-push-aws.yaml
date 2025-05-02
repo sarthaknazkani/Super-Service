@@ -47,7 +47,7 @@ jobs:
             --service-arn arn:aws:apprunner:ap-south-1:985636103691:service/testservice/069d92e58cfd463f946552a79b5da8b8 \
             --source-configuration '{
               "ImageRepository": {
-                "ImageIdentifier": "${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:$IMAGE_TAG",
+                "ImageIdentifier": "${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY}}:${{ env.IMAGE_TAG}}",
                 "ImageRepositoryType": "ECR",
                 "ImageConfiguration": {
                   "Port": "80"
