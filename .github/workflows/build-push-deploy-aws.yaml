@@ -45,7 +45,7 @@ jobs:
         run: |
             
             aws apprunner update-service \
-            --service-arn arn:aws:apprunner:ap-south-1:985636103691:service/testservice/069d92e58cfd463f946552a79b5da8b8 \
+            --service-arn arn:aws:apprunner:ap-south-1:985636103691:service/testSvc/9f1d6f418a6047889e1b52065ef9582b \
             --source-configuration '{
               "ImageRepository": {
                 "ImageIdentifier": "${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY}}:${{ env.IMAGE_TAG}}",
