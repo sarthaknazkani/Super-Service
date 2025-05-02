@@ -39,7 +39,7 @@ jobs:
       - name: Deploy to AWS App Runner
         env:
             ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-            ECR_REPOSITORY: $ECR_REPOSITORY
+            ECR_REPOSITORY: dev/test
             IMAGE_TAG: ${{ github.event.inputs.tag}}
         run: |
             
