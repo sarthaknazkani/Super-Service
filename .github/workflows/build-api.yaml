@@ -1,0 +1,62 @@
+name: Build Super-Service Application
+
+on:
+#   push:
+#     branches:
+#       - feature/build
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Image tag
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
+  
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2      
+
+    # - name: Setup dotnet
+    #   uses: actions/setup-dotnet@v4
+    #   with:
+    #     dotnet-version: '3.1'
+
+    # - name: DotNet Restore
+    #   run: dotnet restore super-service/src/SuperService.csproj
+
+    # - name: DotNet Build
+    #   run: dotnet build super-service/src/SuperService.csproj --no-restore
+
+    # - name: Test with the dotnet CLI
+    #   run: dotnet test super-service/test/SuperService.UnitTests.csproj --no-build --verbosity normal    
+      
+    - name: Docker Setup Docker
+      uses: docker/setup-docker-action@v4.3.0
+      with:
+        # Docker CE version. (e.g, v24.0.9)
+        version: v24.0.9
+
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_PAT }}
+
+    # - name: Set up Docker Buildx
+    #   uses: docker/setup-buildx-action@v3
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: "{{defaultContext}}:super-service"
+        push: true
+        tags: ghcr.io/${{ github.repository_owner }}/super-service:${{ github.event.inputs.tag || 'latest' }}
+        

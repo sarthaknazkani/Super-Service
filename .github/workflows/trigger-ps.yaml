@@ -1,0 +1,20 @@
+name: Build and Push Docker Image- Powershell
+run-name: Build and Push Docker Image ${{ github.event.inputs.tag}}
+
+on:
+      workflow_dispatch:
+        inputs:
+          tag:
+            description: Image tag
+            type: string
+            required: true
+jobs:
+  Powershell:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run PowerShell Script
+        run: pwsh super-service/Deploy.ps1 -Token ${{ secrets.GHCR_PAT }} -Tag ${{ github.event.inputs.tag}}
