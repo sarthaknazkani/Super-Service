@@ -1,4 +1,5 @@
-name: Build and Push Docker Image- AWS CLI
+name: Build Push & Deploy Docker Image- AWS CLI
+run-name: Build Push & Deploy Docker Image ${{ github.event.inputs.tag}}
 
 on:
       workflow_dispatch:
@@ -8,7 +9,7 @@ on:
             type: string
             required: true
 jobs:
-  build:
+  AWSDeploy:
     runs-on: ubuntu-latest
 
     steps:
