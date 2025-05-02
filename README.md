@@ -40,4 +40,4 @@ Solution for Cloud:
 1. Trigger .github/workflows/build-push-deploy-aws.yaml ( Build Push and Deploy Docker Image through AWS CLI), providing image tag as user input.
 2. The image is built, pushed to Elastic Container Registry ( Private).
 3. Image is pulled and Deployed to AWS App Runner Service.
-4. App can be browsed at https://wczdfhamvp.ap-south-1.awsapprunner.com/time/[zone]. Example : https://wczdfhamvp.ap-south-1.awsapprunner.com/time/utc.
+4. App can be browsed at https://dttevesgwm.ap-south-1.awsapprunner.com/time/[zone]. Example : https://dttevesgwm.ap-south-1.awsapprunner.com/time/utc
