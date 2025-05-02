@@ -1,4 +1,5 @@
 name: Build and Push Docker Image- Powershell
+run-name: Build and Push Docker Image ${{ github.event.inputs.tag}}
 
 on:
       workflow_dispatch:
@@ -8,7 +9,7 @@ on:
             type: string
             required: true
 jobs:
-  build:
+  Powershell:
     runs-on: ubuntu-latest
 
     steps:

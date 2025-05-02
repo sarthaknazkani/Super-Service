@@ -1,5 +1,5 @@
 name: Build Push & Deploy Docker Image- AWS CLI
-run-name: Build Push & Deploy Docker Image ${{ github.event.inputs.tag}}
+run-name: Build Push & Deploy Docker Image ${{ github.event.inputs.tag}} to AWS App Runner
 
 on:
       workflow_dispatch:
