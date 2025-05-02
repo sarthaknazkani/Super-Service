@@ -43,4 +43,15 @@ jobs:
             IMAGE_TAG: $IMAGE_TAG
         run: |
             
-            aws apprunner update-service --service-arn arn:aws:apprunner:ap-south-1:985636103691:service/testservice/069d92e58cfd463f946552a79b5da8b8 --source-configuration "$(jq -n --arg ecr_registry "$ECR_REGISTRY" --arg ecr_repository "$ECR_REPOSITORY" --arg image_tag "$IMAGE_TAG" '{ImageRepository: {ImageIdentifier: "\($ecr_registry)/\($ecr_repository):\($image_tag)", ImageConfiguration: {Port: "80"}, ImageRepositoryType: "ECR"}}')"
+            aws apprunner update-service \
+            --service-arn arn:aws:apprunner:ap-south-1:985636103691:service/testservice/069d92e58cfd463f946552a79b5da8b8 \
+            --source-configuration '{
+              "ImageRepository": {
+                "ImageIdentifier": "${{ steps.login-ecr.outputs.registry }}/$ECR_REPOSITORY:$IMAGE_TAG",
+                "ImageRepositoryType": "ECR",
+                "ImageConfiguration": {
+                  "Port": "80"
+                    }
+                },
+                "AutoDeploymentsEnabled": true
+            }'
